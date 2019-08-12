@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows'
+  vmImage: 'windows-latest'
 
 steps:
 - task: Maven@3
@@ -21,8 +21,8 @@ inputs:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    azureSubscription: 'connection-to-demotcsapp'
-    WebAppName: 'demotcsapp'
-    Package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+#- task: AzureRmWebAppDeployment@4
+ # inputs:
+  #  azureSubscription: 'connection-to-demotcsapp'
+   # WebAppName: 'demotcsapp'
+    #Package: '$(System.DefaultWorkingDirectory)/**/*.jar'
