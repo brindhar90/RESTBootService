@@ -11,7 +11,7 @@ pool:
 
 steps:
 #- task: Maven@3
-- task: AzureRmWebAppDeployment@3
+- task: AzureRmWebAppDeployment@4
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
