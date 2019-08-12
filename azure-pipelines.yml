@@ -7,12 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows'
 
 steps:
-#- task: Maven@3
-- task: AzureRmWebAppDeployment@4
-  inputs:
+- task: Maven@3
+inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
@@ -21,6 +20,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+    
+- task: AzureRmWebAppDeployment@4
+  inputs:
     azureSubscription: 'connection-to-demotcsapp'
     WebAppName: 'demotcsapp'
     Package: '$(System.DefaultWorkingDirectory)/**/*.jar'
