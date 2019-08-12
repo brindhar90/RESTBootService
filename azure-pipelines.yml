@@ -10,7 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Maven@3
+#- task: Maven@3
+- task: AzureRmWebAppDeployment@3
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
@@ -21,3 +22,5 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     azureSubscription: 'connection-to-demotcsapp'
+    WebAppName: 'demotcsapp'
+    Package: '$(System.DefaultWorkingDirectory)/**/*.jar'
