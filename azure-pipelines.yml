@@ -28,4 +28,5 @@ steps:
     #deployToSlotOrASE: true
     resourceGroupName: 'QA'
     #slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.war'
+    #package: '$(System.DefaultWorkingDirectory)/**/*.war'
+    package: 'D:/a/r1/a/**/*.war'
