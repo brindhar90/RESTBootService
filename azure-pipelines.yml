@@ -28,4 +28,4 @@ steps:
     #deployToSlotOrASE: true
     resourceGroupName: 'QA'
     #slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+    package: '$(System.DefaultWorkingDirectory)/**/*.war'
