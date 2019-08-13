@@ -1,17 +1,20 @@
 package com.sample.demo;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class ControllerApp {
+	 private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@GetMapping("/demo")
-	public String getData(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name, Model model) {
-		model.addAttribute("name", name);
-		return "demo";
+	public String getData(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name) {
+		//model.addAttribute("name", name);
+		log.info("Received name:" + name);
+		return "Hi! This is a demo page for " + name;
 	}
 	
 }
