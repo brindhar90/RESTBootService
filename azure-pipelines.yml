@@ -40,7 +40,7 @@ steps:
   inputs:
     ArtifactName: 'drop'
     PathtoPublish: '$(build.artifactStagingDirectory)'
-    #publishLocation: 'Container'
+    #publishLocation: 'Container' 
 
 - task: AzureWebApp@1
   inputs:
