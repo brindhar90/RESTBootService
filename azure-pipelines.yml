@@ -41,4 +41,5 @@ steps:
   inputs:
     ArtifactName: 'drop'
     PathtoPublish: '$(build.artifactStagingDirectory)'
+    publishLocation: 'Container'
     #targetPath: 'D:/a/r1/a/'
