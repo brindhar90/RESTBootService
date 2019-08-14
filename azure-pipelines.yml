@@ -34,7 +34,8 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: '**/*.war'
-    TargetFolder: '$(build.artifactStagingDirectory)'
+    #TargetFolder: '$(build.artifactStagingDirectory)'
+    TargetFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
