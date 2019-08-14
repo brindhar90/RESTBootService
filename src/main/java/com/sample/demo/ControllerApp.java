@@ -17,4 +17,10 @@ public class ControllerApp {
 		return "Hi! This is a demo page for " + name;
 	}
 	
+	@GetMapping("/")
+	public String welcome(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name) {
+		log.info("Loaded welcome page");
+		return "Hi! This is a demo page for " + name;
+	}
+	
 }
