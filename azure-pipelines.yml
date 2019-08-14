@@ -35,11 +35,27 @@ steps:
   inputs:
     Contents: '**/*.war'
     TargetFolder: '$(build.artifactStagingDirectory)'
-    #TargetFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'drop'
     PathtoPublish: '$(build.artifactStagingDirectory)'
-    publishLocation: 'Container'
-    #targetPath: 'D:/a/r1/a/'
+    #publishLocation: 'Container'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial(f03bfb44-a59c-441f-afa9-7c1934a9b75d)'
+    appType: 'webApp'
+    appName: 'testdemonew'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(f03bfb44-a59c-441f-afa9-7c1934a9b75d)'
+    appType: 'webApp'
+    WebAppName: 'testdemonew'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    enableCustomDeployment: true
+    DeploymentType: 'webDeploy'
