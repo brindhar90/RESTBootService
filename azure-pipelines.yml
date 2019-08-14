@@ -29,7 +29,7 @@ steps:
     #resourceGroupName: 'QA'
     #slotName: 'production'
     #package: '$(System.DefaultWorkingDirectory)/**/*.war'
-    #package: 'D:/a/r1/a/**/*.war'
+    #package: 'D:/a/r1/a/**/*.war'  
 
 - task: CopyFiles@2
   inputs:
