@@ -40,5 +40,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'drop'
-    #PathtoPublish: '$(build.artifactStagingDirectory)'
-    targetPath: 'D:/a/r1/a/'
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+    #targetPath: 'D:/a/r1/a/'
