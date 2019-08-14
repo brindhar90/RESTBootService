@@ -39,4 +39,4 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'war'
-    PathtoPublish: '(build.artifactStagingDirectory)'
+    PathtoPublish: '$(build.artifactStagingDirectory)'
