@@ -20,12 +20,25 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: AzureWebApp@1
+#- task: AzureWebApp@1
+  #inputs:
+    #azureSubscription: 'connection-to-demotcsapp'
+    #appType: 'webApp'
+    #appName: 'demotcsapp'
+    #deployToSlotOrASE: true
+    #resourceGroupName: 'QA'
+    #slotName: 'production'
+    #package: '$(System.DefaultWorkingDirectory)/**/*.war'
+    #package: 'D:/a/r1/a/**/*.war'
+
+- task: CopyFiles@2
   inputs:
-    azureSubscription: 'connection-to-demotcsapp'
-    appType: 'webApp'
-    appName: 'demotcsapp'
-    deployToSlotOrASE: true
-    resourceGroupName: 'QA'
-    slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+    Contents: '**/*.war'
+    TargetFolder: '$(build.artifactStagingDirectory)'
+    #TargetFolder: '$(System.DefaultWorkingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    ArtifactName: 'drop'
+    #PathtoPublish: '$(build.artifactStagingDirectory)'
+    targetPath: 'D:/a/r1/a/'
