@@ -33,7 +33,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.war'
+    Contents: '**/*.jar'
     TargetFolder: '$(build.artifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
