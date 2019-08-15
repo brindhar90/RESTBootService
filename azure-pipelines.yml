@@ -33,13 +33,11 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.war'
+    Contents: '**/*.jar'
     TargetFolder: '$(build.artifactStagingDirectory)'
-    #TargetFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'drop'
     PathtoPublish: '$(build.artifactStagingDirectory)'
-    publishLocation: 'Container'
-    #targetPath: 'D:/a/r1/a/'
+    #publishLocation: 'Container' 
