@@ -14,13 +14,13 @@ public class ControllerApp {
 	public String getData(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name) {
 		//model.addAttribute("name", name);
 		log.info("Received name:" + name);
-		return "Hi! This is a demo page for " + name;
+		return "Hi.. This is a demo page for " + name;
 	}
 	
 	@GetMapping("/")
 	public String welcome(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name) {
 		log.info("Loaded welcome page");
-		return "Hi! This is a demo page for " + name;
+		return "Hi.. This is a demo page for " + name;
 	}
 	
 }
