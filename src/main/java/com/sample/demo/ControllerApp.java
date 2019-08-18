@@ -14,7 +14,7 @@ public class ControllerApp {
 	public String getData(@RequestParam(name = "name", required = false, defaultValue = "TCSer")String name) {
 		//model.addAttribute("name", name);
 		log.info("Received name:" + name);
-		return "Hi... This is a demo page for " + name;
+		return "Hi! This is a demo page for " + name;
 	}
 	
 	@GetMapping("/")
